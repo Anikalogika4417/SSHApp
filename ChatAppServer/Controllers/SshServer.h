@@ -6,6 +6,8 @@
 #include <iostream>
 #include <sstream>
 #include <iomanip>
+#include <array>
+#include <memory>
 
 #include "../ChatApp/ChatAppServer/Services/Logger.h"
 
@@ -24,12 +26,11 @@ private:
 	int port;
 	ssh_session session;
 	ssh_bind sshBind;
-	vector<ssh_channel> channels;
 
 
 	void handleSession();
-	void handleMessage(ssh_channel channel, const string& message);
-	string executeCustomCommand(const string& command);
+	void handleMessage(ssh_channel channel);
+	void handleCommand(ssh_channel channel, const std::string& command);
 	void authenticate();
 };
 

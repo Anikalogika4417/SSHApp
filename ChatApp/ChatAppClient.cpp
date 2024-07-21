@@ -7,15 +7,10 @@ int main() {
         return 1;
     }
 
-    std::string message;
-    while (true) {
-        std::cout << "Enter message or command (prefix with 'cmd:'): ";
-        std::getline(std::cin, message);
-        if (message == "exit") {
-            break;
-        }
-        client.sendMessage(message);
-    }
+    std::string command = "ls -l";
+    std::string result = client.executeCommand(command);
+
+    std::cout << "Command result:\n" << result << std::endl;
 
     return 0;
 }

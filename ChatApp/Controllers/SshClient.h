@@ -12,7 +12,7 @@ public:
     ~SshClient();
 
     bool connect();
-    void sendMessage(const std::string& message);
+    std::string executeCommand(const std::string& command);
 
 private:
     std::string host;
